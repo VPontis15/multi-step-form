@@ -14,6 +14,8 @@ export default {
       textColor: {
         "step-title": "hsl(229, 24%, 87%)",
         "form-label": " hsl(213, 96%, 18%)",
+        price: "hsl(231, 11%, 63%)",
+        focused: "hsl(243, 100%, 62%)",
       },
     },
   },
