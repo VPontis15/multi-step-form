@@ -11,7 +11,7 @@ function NavStepsUi({ number, title, description, isActive }) {
         {number}
       </span>
       <div>
-        <h3 className="text-gray-200 uppercase">{title}</h3>
+        <h3 className="text-step-title uppercase">{title}</h3>
         <span className="text-white uppercase">{description}</span>
       </div>
     </div>
