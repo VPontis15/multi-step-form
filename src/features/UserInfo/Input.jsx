@@ -5,8 +5,11 @@ function Input({ type, placeholder = "", id, name = "", handleOnChange }) {
       type={type}
       placeholder={placeholder}
       id={id}
+      required={true}
       name={name}
       onChange={() => handleOnChange}
+      maxLength={10}
+      minLength={10}
     />
   );
 }

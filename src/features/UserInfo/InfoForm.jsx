@@ -1,6 +1,6 @@
-import Input from "../ui/Input";
+import Input from "./Input";
 import Form from "../ui/Form";
-import FormRow from "../ui/FormRow";
+import FormRow from "./FormRow";
 import Navigation from "../ui/Navigation";
 
 function InfoForm() {
