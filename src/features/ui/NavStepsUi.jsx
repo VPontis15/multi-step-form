@@ -1,18 +1,18 @@
 function NavStepsUi({ number, title, description, isActive }) {
   return (
-    <div className="flex gap-4 items-center">
+    <div className="flex items-center gap-4">
       <span
         className={
           isActive
-            ? "bg-slate-300 text-slate-800"
-            : "bg-transparent border border-1 rounded-full px-4 py-2 text-white"
+            ? " bg-slate-300 text-slate-800"
+            : "border-1 bold rounded-full border bg-transparent px-4 py-2 font-bold text-white"
         }
       >
         {number}
       </span>
       <div>
-        <h3 className="text-step-title uppercase">{title}</h3>
-        <span className="text-white uppercase">{description}</span>
+        <h3 className="uppercase text-step-title">{title}</h3>
+        <span className="font-bold uppercase text-white">{description}</span>
       </div>
     </div>
   );
