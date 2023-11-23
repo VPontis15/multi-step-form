@@ -5,7 +5,7 @@ import Navigation from "../ui/Navigation";
 
 function InfoForm() {
   return (
-    <div className="grid  grid-cols-[350px_600px] rounded-lg bg-white px-6 py-4">
+    <div className="grid  grid-cols-[350px_650px] rounded-lg bg-white px-6 py-4">
       <Navigation />
       <Form
         formTitle={"Personal Info"}

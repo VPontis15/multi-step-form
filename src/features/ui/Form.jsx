@@ -10,7 +10,7 @@ function Form({
   return (
     <div className="space-y-24  px-20 py-12">
       <header>
-        <h2 className="text-4xl">{formTitle}</h2>
+        <h2 className="mb-2 text-4xl font-bold text-form-label">{formTitle}</h2>
         <p>{description}</p>
       </header>
       <section className=" grid gap-12">{children}</section>
@@ -22,7 +22,7 @@ function Form({
         )}
         {step <= 4 ? (
           <button
-            className="bg-btn-next ml-auto rounded-lg px-6 py-3 text-white "
+            className="ml-auto rounded-lg bg-btn-next px-6 py-3 text-white "
             onClick={() => nextStep}
           >
             Next Step
