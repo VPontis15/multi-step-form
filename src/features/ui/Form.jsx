@@ -16,11 +16,14 @@ function Form({
       <section className=" grid gap-12">{children}</section>
       <div className="flex justify-between">
         {step <= 4 && step > 1 && (
-          <button className="text-step-title" onClick={() => previousStep}>
+          <button
+            className="text-price font-semibold"
+            onClick={() => previousStep}
+          >
             Go Back
           </button>
         )}
-        {step <= 4 ? (
+        {step < 4 ? (
           <button
             className="ml-auto rounded-lg bg-btn-next px-6 py-3 text-white "
             onClick={() => nextStep}
@@ -28,7 +31,10 @@ function Form({
             Next Step
           </button>
         ) : (
-          <button className="ml-auto text-white" onClick={() => submit}>
+          <button
+            className="bg-btn-confirm ml-auto rounded-lg px-6 py-3 text-white"
+            onClick={() => submit}
+          >
             Confirm
           </button>
         )}

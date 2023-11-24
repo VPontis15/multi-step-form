@@ -9,13 +9,14 @@ export default {
       backgroundColor: {
         body: "hsl(217, 100%, 97%)",
         "btn-next": " hsl(213, 96%, 18%)",
+        "btn-confirm": "hsl(243, 100%, 62%)",
       },
 
       textColor: {
         "step-title": "hsl(229, 24%, 87%)",
         "form-label": " hsl(213, 96%, 18%)",
         price: "hsl(231, 11%, 63%)",
-        focused: "hsl(243, 100%, 62%)",
+        "option-title": "hsl(243, 100%, 62%)",
       },
     },
   },
