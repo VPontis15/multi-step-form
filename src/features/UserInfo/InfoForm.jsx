@@ -20,6 +20,7 @@ function InfoForm() {
             name={"name"}
             placeholder={"e.g Stephen King"}
             id={"name"}
+            value=""
           />
         </FormRow>
         <FormRow label={"Email"}>
@@ -28,6 +29,7 @@ function InfoForm() {
             name={"email"}
             placeholder={"Email Address"}
             id={"email"}
+            value=""
           />
         </FormRow>
         <FormRow label={"Phone Number"}>
@@ -36,6 +38,7 @@ function InfoForm() {
             name={"phone"}
             placeholder={"e.g +1234 567 890"}
             id={"phone"}
+            value=""
           />
         </FormRow>
       </Form>

@@ -4,7 +4,7 @@ function NavStepsUi({ number, title, description, isActive }) {
       <span
         className={
           isActive
-            ? " bg-slate-300 text-slate-800"
+            ? " border-1 bold rounded-full border bg-transparent px-4 py-2 font-bold text-white"
             : "border-1 bold rounded-full border bg-transparent px-4 py-2 font-bold text-white"
         }
       >

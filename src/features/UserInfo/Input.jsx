@@ -1,4 +1,11 @@
-function Input({ type, placeholder = "", id, name = "", handleOnChange }) {
+function Input({
+  type,
+  placeholder = "",
+  value = "",
+  id,
+  name = "",
+  handleOnChange,
+}) {
   return (
     <input
       className=" h-12 w-full max-w-full rounded-md border border-stone-300 pl-4 "
@@ -10,6 +17,7 @@ function Input({ type, placeholder = "", id, name = "", handleOnChange }) {
       onChange={() => handleOnChange}
       maxLength={10}
       minLength={10}
+      value={value}
     />
   );
 }
