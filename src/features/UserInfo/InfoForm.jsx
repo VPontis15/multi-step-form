@@ -2,8 +2,13 @@ import Input from "./Input";
 import Form from "../ui/Form";
 import FormRow from "./FormRow";
 import Navigation from "../ui/Navigation";
+import { useDispatch, useSelector } from "react-redux";
+import { getStep } from "../globalSlice";
 
 function InfoForm() {
+  const step = useSelector(getStep);
+
+  const dispatch = useDispatch();
   return (
     <div className="grid  grid-cols-[350px_650px] rounded-lg bg-white px-6 py-4">
       <Navigation />

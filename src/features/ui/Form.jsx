@@ -1,12 +1,18 @@
+import { useDispatch, useSelector } from "react-redux";
+import { decreaseStep, getStep, increaseStep } from "../globalSlice";
+
 function Form({
   formTitle,
   description,
-  step,
+
   children,
   nextStep,
   submit,
   previousStep,
 }) {
+  const step = useSelector(getStep);
+
+  const dispatch = useDispatch();
   return (
     <div className="space-y-14  px-20 py-12">
       <header>
@@ -17,22 +23,25 @@ function Form({
       <div className="flex justify-between">
         {step <= 4 && step > 1 && (
           <button
-            className="text-price font-semibold"
-            onClick={() => previousStep}
+            className="font-semibold text-price"
+            onClick={() => dispatch(decreaseStep())}
           >
             Go Back
           </button>
         )}
         {step < 4 ? (
-          <button
-            className="ml-auto rounded-lg bg-btn-next px-6 py-3 text-white "
-            onClick={() => nextStep}
-          >
-            Next Step
-          </button>
+          <form className="ml-auto">
+            <button
+              className=" rounded-lg bg-btn-next px-6 py-3 text-white "
+              onClick={() => dispatch(increaseStep())}
+              type="submit"
+            >
+              Next Step
+            </button>
+          </form>
         ) : (
           <button
-            className="bg-btn-confirm ml-auto rounded-lg px-6 py-3 text-white"
+            className="ml-auto rounded-lg bg-btn-confirm px-6 py-3 text-white"
             onClick={() => submit}
           >
             Confirm
