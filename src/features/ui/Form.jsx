@@ -8,7 +8,7 @@ function Form({
   previousStep,
 }) {
   return (
-    <div className="space-y-24  px-20 py-12">
+    <div className="space-y-14  px-20 py-12">
       <header>
         <h2 className="mb-2 text-4xl font-bold text-form-label">{formTitle}</h2>
         <p>{description}</p>
