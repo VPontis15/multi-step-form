@@ -2,7 +2,12 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   step: 1,
-  errors: {},
+  errors: {
+    name: "",
+    email: "",
+    phone: "",
+    price: 0,
+  },
 };
 
 const globalSlice = createSlice({
@@ -10,17 +15,27 @@ const globalSlice = createSlice({
   initialState,
   reducers: {
     increaseStep: function (state) {
-      state.step += 1;
+      if (Object.values(state.errors).every((error) => !error)) state.step += 1;
     },
 
     decreaseStep: function (state) {
+      Object.keys(state.errors).forEach((key) => {
+        return (state.errors[key] = "");
+      });
       state.step -= 1;
+    },
+    addError: function (state, action) {
+      state.errors[action.payload.type] = action.payload.message;
+    },
+    clearError: function (state, action) {
+      state.errors[action.payload] = "";
     },
   },
 });
 
 export const getStep = (state) => state.global.step;
-
-export const { increaseStep, decreaseStep } = globalSlice.actions;
+export const getErrors = (state) => state.global.errors;
+export const { increaseStep, decreaseStep, addError, clearError } =
+  globalSlice.actions;
 
 export default globalSlice.reducer;

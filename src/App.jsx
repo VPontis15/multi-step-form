@@ -3,9 +3,10 @@ import Addons from "./features/AddOns/Addons";
 import Plan from "./features/Plan/Plan";
 import Summary from "./features/Summary/Summary";
 import InfoForm from "./features/UserInfo/InfoForm";
-import { getStep } from "./features/globalSlice";
+import { getErrors, getStep } from "./features/globalSlice";
 
 function App() {
+  const errors = useSelector(getErrors);
   const step = useSelector(getStep);
   return (
     <>
@@ -14,7 +15,7 @@ function App() {
           <InfoForm />
         </section>
       )}
-      {step === 2 && (
+      {step === 2 && errors && (
         <section className="grid min-h-screen items-center justify-center bg-body">
           <Plan />
         </section>

@@ -1,3 +1,5 @@
+import { InputMask } from "@react-input/mask";
+
 function Input({
   type,
   placeholder = "",
@@ -5,6 +7,10 @@ function Input({
   id,
   name = "",
   handleOnChange,
+  maxValue = "",
+  minValue = "",
+
+  mask = "",
 }) {
   return (
     <input
@@ -14,10 +20,11 @@ function Input({
       id={id}
       required={true}
       name={name}
-      onChange={() => handleOnChange}
-      maxLength={10}
-      minLength={10}
+      onChange={handleOnChange}
+      minLength={minValue}
+      maxLength={maxValue}
       value={value}
+      onBlur={handleOnChange}
     />
   );
 }

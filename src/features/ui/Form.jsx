@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { decreaseStep, getStep, increaseStep } from "../globalSlice";
+import { decreaseStep, getErrors, getStep, increaseStep } from "../globalSlice";
 
 function Form({
   formTitle,
@@ -11,6 +11,7 @@ function Form({
   previousStep,
 }) {
   const step = useSelector(getStep);
+  const errors = useSelector(getErrors);
 
   const dispatch = useDispatch();
   return (
@@ -30,15 +31,13 @@ function Form({
           </button>
         )}
         {step < 4 ? (
-          <form className="ml-auto">
-            <button
-              className=" rounded-lg bg-btn-next px-6 py-3 text-white "
-              onClick={() => dispatch(increaseStep())}
-              type="submit"
-            >
-              Next Step
-            </button>
-          </form>
+          <button
+            className="ml-auto rounded-lg bg-btn-next px-6 py-3 text-white "
+            onClick={() => dispatch(increaseStep())}
+            type="submit"
+          >
+            Next Step
+          </button>
         ) : (
           <button
             className="ml-auto rounded-lg bg-btn-confirm px-6 py-3 text-white"

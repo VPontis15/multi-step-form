@@ -23,6 +23,7 @@
     top: 0px;
     left: -65px;
     background: hsl(213, 96%, 18%);
+    cursor: pointer;
   }
 
   input[type="checkbox"] + label::after {
