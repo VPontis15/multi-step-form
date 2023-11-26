@@ -27,6 +27,8 @@ const planSlice = createSlice({
 export const getChoice = (state) => state.plan.plan.choice;
 export const getPrice = (state) => state.plan.plan.price;
 export const getTitle = (state) => state.plan.plan.title;
+export const getSumOfPrices = (state) =>
+  state.addons.addons.reduce((sum, addon) => sum + addon.price, 0);
 
 export const { addPrice, addTitle, addChoice } = planSlice.actions;
 export default planSlice.reducer;

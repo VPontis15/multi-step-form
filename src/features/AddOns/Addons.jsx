@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Form from "../ui/Form";
 import Navigation from "../ui/Navigation";
+import ErrorMessage from "../ui/ErrorMessage";
 import Option from "../ui/Option";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -10,9 +11,10 @@ import {
   addAddon,
   removeSelectedAddon,
 } from "./AddonsSlice";
+import { addError, clearError, getErrors } from "../globalSlice";
 
 function Addons() {
-  const [isChecked, setIsChecked] = useState(false);
+  const errors = useSelector(getErrors);
   const addons = useSelector(getAddons);
   const addon = useSelector(getAddon);
 
@@ -32,7 +34,7 @@ function Addons() {
       };
       setLocalAddon(updatedLocalAddon);
       setLocalAddons((arr) => [...arr, updatedLocalAddon]);
-      dispatch(selectAddon({ title: addonTitle, price: addonPrice }));
+      dispatch(selectAddon({ title: addonTitle, price: Number(addonPrice) }));
       dispatch(addAddon(addon));
     } else {
       dispatch(removeSelectedAddon(addonTitle));
@@ -90,6 +92,7 @@ function Addons() {
             }
           />
         </ul>
+        {errors.addon && <ErrorMessage>{errors.addon}</ErrorMessage>}
       </Form>
     </div>
   );

@@ -1,3 +1,6 @@
+import { useSelector } from "react-redux";
+import { getChoice } from "../Plan/PlanSlice";
+
 function SummaryItem({
   title,
   price,
@@ -7,12 +10,13 @@ function SummaryItem({
   fontBold = "regular",
   children,
 }) {
+  const choice = useSelector(getChoice);
   return (
     <li
       className={`flex justify-between bg-${bgColor} items-center rounded-md px-4 py-6`}
     >
       <div>
-        <h3 className={`text-[${titleColor}] font-${fontBold}`}>{title}</h3>
+        <h3 className={`text-${titleColor} font-${fontBold}`}>{title}</h3>
         {children}
       </div>
       <span
@@ -20,7 +24,7 @@ function SummaryItem({
           price ? "" : "font-bold text-option-title"
         }`}
       >
-        ${price || totalPrice}/month
+        ${price || totalPrice}/{choice === "monthly" ? "mo" : "yr"}
       </span>
     </li>
   );

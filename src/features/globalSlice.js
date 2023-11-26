@@ -1,12 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  step: 3,
+  step: 2,
   errors: {
     name: "",
     email: "",
     phone: "",
     price: 0,
+    adddon: "",
   },
 };
 

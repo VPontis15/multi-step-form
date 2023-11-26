@@ -33,12 +33,13 @@ function Plan() {
     const selectedTitle = e.target.closest("li").getAttribute("data-title");
     setLocalValue(selectedValue);
     setLocalTitle(selectedTitle);
-    dispatch(addPrice(selectedValue));
+    dispatch(addPrice(Number(selectedValue)));
     dispatch(addTitle(selectedTitle));
   }
 
   function selectChoice(e) {
     const choice = e.target.checked ? "yearly" : "monthly";
+    dispatch(addError({ type: "price", message: "Please select a plan" }));
     dispatch(addChoice(choice));
   }
 
