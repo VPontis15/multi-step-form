@@ -3,7 +3,13 @@ import Form from "../ui/Form";
 import FormRow from "./FormRow";
 import Navigation from "../ui/Navigation";
 import { useDispatch, useSelector } from "react-redux";
-import { addError, clearError, getErrors, getStep } from "../globalSlice";
+import {
+  addError,
+  clearError,
+  getErrors,
+  getErrorsState,
+  getStep,
+} from "../globalSlice";
 import { InputMask } from "@react-input/mask";
 import {
   getEmail,
@@ -23,7 +29,7 @@ function InfoForm() {
   const email = useSelector(getEmail);
   const phone = useSelector(getPhone);
   const errors = useSelector(getErrors);
-
+  const showErrors = useSelector(getErrorsState);
   const [localName, setLocalName] = useState(name);
   const [localEmail, setLocalEmail] = useState(email);
   const [localPhone, setLocalPhone] = useState(phone);
@@ -109,7 +115,9 @@ function InfoForm() {
             value={localName}
           />
         </FormRow>{" "}
-        {errors?.name && <ErrorMessage> {errors.name}</ErrorMessage>}
+        {errors?.name && showErrors && (
+          <ErrorMessage> {errors.name}</ErrorMessage>
+        )}
         <FormRow label={"Email"}>
           <Input
             type={"email"}
@@ -120,7 +128,9 @@ function InfoForm() {
             value={localEmail}
           />
         </FormRow>
-        {errors?.email && <ErrorMessage>{errors.email}</ErrorMessage>}
+        {errors?.email && showErrors && (
+          <ErrorMessage>{errors.email}</ErrorMessage>
+        )}
         <FormRow label={"Phone Number"}>
           <Input
             type={"text"}
@@ -133,7 +143,9 @@ function InfoForm() {
             handleOnChange={handleLocalPhone}
           />
         </FormRow>
-        {errors?.phone && <ErrorMessage>{errors.phone}</ErrorMessage>}
+        {errors?.phone && showErrors && (
+          <ErrorMessage>{errors.phone}</ErrorMessage>
+        )}
       </Form>
     </div>
   );

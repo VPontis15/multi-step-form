@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  step: 2,
+  step: 1,
   errors: {
     name: "",
     email: "",
@@ -10,6 +10,7 @@ const initialState = {
     adddon: "",
   },
   isModalOpen: false,
+  showErrors: false,
 };
 
 const globalSlice = createSlice({
@@ -17,7 +18,10 @@ const globalSlice = createSlice({
   initialState,
   reducers: {
     increaseStep: function (state) {
-      if (Object.values(state.errors).every((error) => !error)) state.step += 1;
+      if (Object.values(state.errors).every((error) => !error)) {
+        state.step += 1;
+        state.showErrors = false;
+      } else state.showErrors = true;
     },
 
     decreaseStep: function (state) {
@@ -42,6 +46,7 @@ const globalSlice = createSlice({
 });
 
 export const getIsOpenModal = (state) => state.global.isModalOpen;
+export const getErrorsState = (state) => state.global.showErrors;
 export const getStep = (state) => state.global.step;
 export const getErrors = (state) => state.global.errors;
 export const {

@@ -12,7 +12,12 @@ import {
   getPrice,
   getTitle,
 } from "./PlanSlice";
-import { addError, clearError, getErrors } from "../globalSlice";
+import {
+  addError,
+  clearError,
+  getErrors,
+  getErrorsState,
+} from "../globalSlice";
 import ErrorMessage from "../ui/ErrorMessage";
 
 function Plan() {
@@ -20,6 +25,7 @@ function Plan() {
   const title = useSelector(getTitle);
   const choice = useSelector(getChoice);
   const errors = useSelector(getErrors);
+  const showErrors = useSelector(getErrorsState);
   const [localValue, setLocalValue] = useState(price);
   const [localTitle, setLocalTitle] = useState(title);
   const dispatch = useDispatch();
@@ -107,7 +113,9 @@ function Plan() {
             selectChoice(e);
           }}
         />
-        {errors?.price && <ErrorMessage>{errors.price}</ErrorMessage>}
+        {errors?.price && showErrors && (
+          <ErrorMessage>{errors.price}</ErrorMessage>
+        )}
       </Form>
     </div>
   );
