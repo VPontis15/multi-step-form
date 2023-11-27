@@ -1,4 +1,4 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Form from "../ui/Form";
 import Navigation from "../ui/Navigation";
 import SummaryItem from "./SummaryItem";
@@ -9,16 +9,20 @@ import {
   getTitle,
 } from "../Plan/PlanSlice";
 import { getAddons } from "../AddOns/AddonsSlice";
+import { useState } from "react";
+import ChangePlanModal from "./ChangePlanModal";
+import { getIsOpenModal, openModal } from "../globalSlice";
 
 function Summary() {
+  const openModalWindow = useSelector(getIsOpenModal);
   const choice = useSelector(getChoice);
   const title = useSelector(getTitle);
   const price = useSelector(getPrice);
   const sumOfPrices = useSelector(getSumOfPrices);
-  console.log(sumOfPrices + price);
   const totalSum = sumOfPrices + price;
   const addons = useSelector(getAddons);
-  console.log(addons);
+  const dispatch = useDispatch();
+
   return (
     <div className="grid  grid-cols-[350px_650px] rounded-lg bg-white px-6 py-4">
       <Navigation />
@@ -35,7 +39,7 @@ function Summary() {
             bgColor="body"
             titleColor="form-label"
           >
-            <button className="underline" onClick={() => {}}>
+            <button className="underline" onClick={() => dispatch(openModal())}>
               Change
             </button>{" "}
           </SummaryItem>
@@ -59,6 +63,7 @@ function Summary() {
           />
         </ul>
       </Form>
+      {openModalWindow && <ChangePlanModal />}
     </div>
   );
 }

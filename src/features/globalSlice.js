@@ -9,6 +9,7 @@ const initialState = {
     price: 0,
     adddon: "",
   },
+  isModalOpen: false,
 };
 
 const globalSlice = createSlice({
@@ -31,12 +32,25 @@ const globalSlice = createSlice({
     clearError: function (state, action) {
       state.errors[action.payload] = "";
     },
+    openModal: function (state) {
+      state.isModalOpen = true;
+    },
+    closeModal: function (state) {
+      state.isModalOpen = false;
+    },
   },
 });
 
+export const getIsOpenModal = (state) => state.global.isModalOpen;
 export const getStep = (state) => state.global.step;
 export const getErrors = (state) => state.global.errors;
-export const { increaseStep, decreaseStep, addError, clearError } =
-  globalSlice.actions;
+export const {
+  increaseStep,
+  decreaseStep,
+  openModal,
+  closeModal,
+  addError,
+  clearError,
+} = globalSlice.actions;
 
 export default globalSlice.reducer;
