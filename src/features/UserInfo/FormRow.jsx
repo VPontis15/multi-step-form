@@ -3,7 +3,7 @@ function FormRow({ label, children }) {
     <div className="space-y-2">
       <label
         className="block text-form-label"
-        htmlFor={children.props.id}
+        htmlFor={children && children[0]?.props?.id}
         aria-label={label}
       >
         {label}

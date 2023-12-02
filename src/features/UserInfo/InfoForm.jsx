@@ -114,10 +114,11 @@ function InfoForm() {
             handleOnChange={handleLocalName}
             value={localName}
           />
-        </FormRow>{" "}
-        {errors?.name && showErrors && (
-          <ErrorMessage> {errors.name}</ErrorMessage>
-        )}
+          {errors?.name && showErrors && (
+            <ErrorMessage>{errors.name}</ErrorMessage>
+          )}
+        </FormRow>
+
         <FormRow label={"Email"}>
           <Input
             type={"email"}
@@ -127,10 +128,11 @@ function InfoForm() {
             handleOnChange={handleLocalEmail}
             value={localEmail}
           />
+          {errors?.email && showErrors && (
+            <ErrorMessage>{errors.email}</ErrorMessage>
+          )}
         </FormRow>
-        {errors?.email && showErrors && (
-          <ErrorMessage>{errors.email}</ErrorMessage>
-        )}
+
         <FormRow label={"Phone Number"}>
           <Input
             type={"text"}
@@ -142,10 +144,10 @@ function InfoForm() {
             value={localPhone}
             handleOnChange={handleLocalPhone}
           />
+          {errors?.phone && showErrors && (
+            <ErrorMessage>{errors.phone}</ErrorMessage>
+          )}
         </FormRow>
-        {errors?.phone && showErrors && (
-          <ErrorMessage>{errors.phone}</ErrorMessage>
-        )}
       </Form>
     </div>
   );
