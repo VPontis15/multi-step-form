@@ -25,7 +25,7 @@ function Card({
         isPicked ? `outline ${color} focus:outline focus:${color}` : ""
       }  focus:outline ${color}`}
     >
-      <img className="mb-10" src={`../src/assets/images/icon-${icon}.svg`} />
+      <img className="mb-10" src={`/assets/images/icon-${icon}.svg`} />
       <article className="">
         <h3 className="text-lg font-bold text-form-label">{cardTitle}</h3>
         {choice === "yearly" ? (

@@ -4,7 +4,7 @@ export default {
   theme: {
     extend: {
       backgroundImage: {
-        "steps-bg": "url(../assets/images/bg-sidebar-desktop.svg)",
+        "steps-bg": "url(/assets/images/bg-sidebar-desktop.svg)",
       },
       backgroundColor: {
         body: "hsl(217, 100%, 97%)",
